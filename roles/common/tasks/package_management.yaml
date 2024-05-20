@@ -1,0 +1,38 @@
+- name: Enable extra repo
+  become: yes
+  become_user: root
+  blockinfile:
+    path: /etc/pacman.conf
+    append_newline: true
+    prepend_newline: true
+    block: |
+     [extra]
+     Include = /etc/pacman.d/mirrorlist
+
+- name: Enable multilib repo
+  become: yes
+  become_user: root
+  blockinfile:
+    path: /etc/pacman.conf
+    append_newline: true
+    prepend_newline: true
+    block: |
+     [multilib]
+     Include = /etc/pacman.d/mirrorlist
+
+- name: Update cache and packages
+  become: true
+  become_user: root
+  pacman:
+    update_cache: yes
+    upgrade: yes
+
+- name: Configure mirrorlist
+  become: yes
+  become_user: root
+  command: "{{ item }}"
+  loop:
+    - "pacman -S --needed --noconfirm reflector"
+    - "reflector --verbose -l 5 --sort rate --save /etc/pacman.d/mirrorlist"
+
+

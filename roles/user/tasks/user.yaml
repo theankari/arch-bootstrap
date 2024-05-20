@@ -1,0 +1,25 @@
+- name: Create User
+  become: yes
+  become_user: root
+  user: 
+    name: "{{ user }}"
+    generate_ssh_key: yes
+    ssh_key_bits: 2048
+    ssh_key_file: .ssh/id_rsa
+    shell: /bin/zsh
+    password: "{{ 'changeme' | password_hash('sha512') }}"
+    append: true
+    groups:
+      - wheel
+      - docker
+      - lp
+
+- name: Enable sudo for wheel 
+  become: yes
+  become_user: root
+  lineinfile:
+     path: /etc/sudoers.d/aur_builder-allow-to-sudo-pacman
+     state: present
+     line: "%wheel ALL=(ALL:ALL) ALL"
+     validate: /usr/sbin/visudo -cf %s
+     create: yes

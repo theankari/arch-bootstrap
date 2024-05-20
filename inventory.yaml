@@ -1,0 +1,12 @@
+servers:
+  hosts:
+    # localhost:
+    # 192.168.100.101:
+
+devhosts: 
+  hosts:
+    127.0.0.1:
+      ansible_port: 2222
+      ansible_user: root
+      ansible_password: root
+

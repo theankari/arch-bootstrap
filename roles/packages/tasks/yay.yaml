@@ -1,0 +1,59 @@
+- name: Create temporary user for aur installation
+  become: yes
+  become_user: root
+  user: name=aur_builder
+
+- name: Disable sudo password for tem user 
+  become: yes
+  become_user: root
+  lineinfile:
+     path: /etc/sudoers.d/aur_builder-allow-to-sudo-pacman
+     state: present
+     line: "aur_builder ALL=(ALL) NOPASSWD: /usr/bin/pacman"
+     validate: /usr/sbin/visudo -cf %s
+     create: yes
+
+- name: Clone yay repository
+  become: yes
+  become_user: aur_builder
+  git:
+    repo: https://aur.archlinux.org/yay.git
+    dest: "/tmp/yay"
+    clone: true
+
+- name: Install yay
+  become: yes
+  become_user: aur_builder
+  args:
+    chdir: "/tmp/yay/"
+  command: makepkg -si --noconfirm
+
+- name: Install aur packages
+  become: yes
+  become_user: aur_builder
+  command: "yay -S {{ aur_packages | join(' ') }} --noconfirm"
+
+- name: Cleanup yay installation dir
+  become: yes
+  become_user: root
+  file:
+    state: absent
+    path: "/tmp/yay/"
+
+- name: Clean up temp user permissions 
+  become: yes
+  become_user: root
+  lineinfile:
+     path: /etc/sudoers.d/aur_builder-allow-to-sudo-pacman
+     state: absent
+     line: "aur_builder ALL=(ALL) NOPASSWD: /usr/bin/pacman"
+
+- name: Clean up temp user
+  become: yes
+  become_user: root
+  user: 
+    name: aur_builder
+    state: absent
+    remove: true
+    force: true
+

@@ -1,0 +1,20 @@
+- name: Create user
+  import_tasks: user.yaml
+  tags:
+    - user
+
+- name: Install plugins
+  import_tasks: plugins.yaml
+  tags:
+    - plugins
+
+- name: install dotfiles
+  import_tasks: config.yaml
+  tags:
+    - dotfiles
+
+- name: Setup editor
+  import_tasks: editor.yaml
+  tags:
+    - editor
+

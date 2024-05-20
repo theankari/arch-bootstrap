@@ -1,0 +1,13 @@
+- name: Enable locales
+  become: yes
+  become_user: root
+  lineinfile:
+     path: /etc/locale.gen
+     state: present
+     line: "en_US.UTF-8 UTF-8"
+
+- name: Generate locales
+  become: yes
+  become_user: root
+  command: "locale-gen"
+

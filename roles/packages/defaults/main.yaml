@@ -1,0 +1,48 @@
+packages:
+  - base
+  - base-devel
+  - zsh
+  - git
+  - i3
+  - alacritty
+  - go
+  - docker
+  - tmux
+  - thunar
+  - vagrant
+  - baobab
+  - bluez
+  - bluez-utils
+  - alsa-plugins
+  - alsa-utils
+  - dunst
+  - pavucontrol
+  - neovim
+  - lazygit
+  - ripgrep
+  - powerline
+  - powerline-common
+  - rofi
+  - scrot
+  - vlc
+  - wget
+  - xorg
+  - xorg-xinit
+  - stow
+  - networkmanager
+  - network-manager-applet
+  - ttf-roboto-mono
+  - ttf-roboto-mono-nerd
+  - picom
+  - feh
+  - htop
+  - synapse
+  - fzf
+
+aur_packages:
+  - polybar
+  - ttf-font-awesome
+  - noto-fonts-emoji
+  - corrupter-git
+  - neovim-symlinks
+

@@ -1,0 +1,9 @@
+- name: Prepare package management
+  import_tasks: package_management.yaml
+  tags:
+    - package_management
+
+- name: Install locales
+  import_tasks: locale.yaml
+  tags:
+    - locale

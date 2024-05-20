@@ -1,0 +1,15 @@
+- name: Pull config repository
+  become_user: "{{ user }}"
+  become: yes
+  git:
+    repo: https://github.com/theankari/dotfiles
+    dest: "~/.dotfiles/"
+    clone: true
+
+- name: stow config
+  become_user: "{{ user }}"
+  become: yes
+  args:
+    chdir: "~/.dotfiles/"
+  command: "stow . --no-folding"
+

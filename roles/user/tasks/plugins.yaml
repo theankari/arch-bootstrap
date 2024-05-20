@@ -1,0 +1,56 @@
+- name: Install tmux plugin manager
+  become: yes
+  become_user: "{{ user }}"
+  git:
+    repo: https://github.com/tmux-plugins/tpm
+    dest: "~/.tmux/plugins/tpm"
+    clone: true
+
+- name: Install oh-my-zsh
+  become: yes
+  become_user: "{{ user }}"
+  git:
+    repo: "{{ item.repo }}"
+    dest: "{{ item.path }}"
+    clone: true
+  loop:
+    - { repo: "https://github.com/ohmyzsh/ohmyzsh.git", path: "~/.oh-my-zsh/" }
+    - { repo: "https://github.com/zsh-users/zsh-syntax-highlighting.git", path: "~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting" }
+    - { repo: "https://github.com/zsh-users/zsh-autosuggestions", path: "~/.oh-my-zsh/custom/plugins/zsh-autosuggestions" }
+    - { repo: "https://github.com/zsh-users/zsh-completions", path: "~/.oh-my-zsh/custom/plugins/zsh-completions" }
+    - { repo: "https://github.com/romkatv/powerlevel10k.git", path: "~/.oh-my-zsh/custom/themes/powerlevel10k" }
+
+- name: Install rofi themes
+  become: yes
+  become_user: "{{ user }}"
+  git:
+    repo: https://github.com/adi1090x/rofi.git
+    dest: "~/rofi-themes"
+    clone: true
+
+- name: Setup script permissions
+  become: yes
+  become_user: "{{ user }}"
+  args:
+    chdir: "~/rofi-themes/"
+  command: "chmod +x setup.sh"
+
+- name: Setup rofi themes
+  become: yes
+  become_user: "{{ user }}"
+  args:
+    chdir: "~/rofi-themes/"
+  command: "./setup.sh"
+
+- name: Cleanup rofi themes installation dir
+  become: yes
+  become_user: "{{ user }}"
+  file:
+    state: absent
+    path: "~/rofi-themes/"
+
+- name: Create a symbolic link for app launcher
+  ansible.builtin.file:
+    src: "/home/{{ user }}/.config/rofi/launchers/type-3/launcher.sh"
+    dest: "/home/{{ user }}/.local/bin/i3/appsmenu.sh"
+    state: link

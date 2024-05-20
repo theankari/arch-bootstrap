@@ -1,0 +1,9 @@
+- name: Install packages
+  import_tasks: base.yaml
+  tags:
+    - packages
+
+- name: Install yay
+  import_tasks: yay.yaml
+  tags:
+    - aur
