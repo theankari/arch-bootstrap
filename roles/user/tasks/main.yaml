@@ -3,15 +3,15 @@
   tags:
     - user
 
-- name: Install plugins
-  import_tasks: plugins.yaml
-  tags:
-    - plugins
-
 - name: install dotfiles
   import_tasks: config.yaml
   tags:
     - dotfiles
+
+- name: Install plugins
+  import_tasks: plugins.yaml
+  tags:
+    - plugins
 
 - name: Setup editor
   import_tasks: editor.yaml
