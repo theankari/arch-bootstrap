@@ -15,4 +15,5 @@
 - name: Enable NetworkManager
   systemd_service:
     name: NetworkManager.service
+    state: started
     enabled: true
