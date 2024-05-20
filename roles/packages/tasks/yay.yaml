@@ -18,14 +18,14 @@
   become_user: aur_builder
   git:
     repo: https://aur.archlinux.org/yay.git
-    dest: "/tmp/yay"
+    dest: "~/yay"
     clone: true
 
 - name: Install yay
   become: yes
   become_user: aur_builder
   args:
-    chdir: "/tmp/yay/"
+    chdir: "~/yay/"
   command: makepkg -si --noconfirm
 
 - name: Install aur packages
@@ -38,7 +38,7 @@
   become_user: root
   file:
     state: absent
-    path: "/tmp/yay/"
+    path: "~/yay/"
 
 - name: Clean up temp user permissions 
   become: yes
