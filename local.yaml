@@ -1,0 +1,5 @@
+- hosts: localsetup
+  roles:
+    - common
+    - packages
+    - user

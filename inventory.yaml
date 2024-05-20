@@ -9,4 +9,9 @@ devhosts:
       ansible_port: 2222
       ansible_user: root
       ansible_password: root
+localsetup:
+  hosts:
+    localhost:
+      ansible_connection: local
+
 
