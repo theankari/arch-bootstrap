@@ -15,20 +15,11 @@
 
 - name: Clone yay repository
   become: yes
-  become_user: root
+  become_user: aur_builder
   git:
     repo: https://aur.archlinux.org/yay.git
     dest: "/tmp/yay"
     clone: true
-
-- name: Update yay dir permissions
-  file:
-    path: "/tmp/yay/"
-    state: directory
-    recurse: yes
-    owner: aur_builder
-    group: aur_builder
-    mode: "0775"
 
 - name: Install yay
   become: yes
