@@ -18,3 +18,8 @@
   tags:
     - editor
 
+- name: Setup user specific statup apps
+  import_tasks: startup.yaml
+  tags:
+    - startup
+

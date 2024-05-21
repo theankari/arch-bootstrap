@@ -10,6 +10,10 @@ packages:
   - tmux
   - thunar
   - vagrant
+  - pulseaudio
+  - scrot
+  - xfce4-screenshooter
+  - unzip
   - baobab
   - bluez
   - bluez-utils
@@ -32,6 +36,8 @@ packages:
   - networkmanager
   - network-manager-applet
   - ttf-roboto-mono
+  - npm
+  - ttf-sourcecodepro-nerd
   - ttf-roboto-mono-nerd
   - picom
   - feh

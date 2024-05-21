@@ -17,3 +17,9 @@
     name: NetworkManager.service
     state: started
     enabled: true
+
+- name: Enable bluetooth
+  systemd_service:
+    name: bluetooth.service
+    state: started
+    enabled: true

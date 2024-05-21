@@ -13,6 +13,9 @@
       - wheel
       - docker
       - lp
+      - audio
+      - power
+      - pulse
 
 - name: Enable sudo for wheel 
   become: yes

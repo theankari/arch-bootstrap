@@ -1,0 +1,6 @@
+- name: Enable pulseaudio
+  systemd_service:
+    name: pulseaudio
+    scope: user
+    state: started
+    enabled: true

@@ -2,6 +2,6 @@
   become: yes
   become_user: "{{ user }}"
   git:
-    repo: https://github.com/NvChad/starter
+    repo: https://github.com/theankari/nvim-config
     dest: "~/.config/nvim"
     clone: true
