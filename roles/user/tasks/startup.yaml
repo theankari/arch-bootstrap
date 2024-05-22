@@ -4,3 +4,10 @@
     scope: user
     state: started
     enabled: true
+
+- name: Enable pulseaudio
+  systemd_service:
+    name: ssh-agent.service
+    scope: user
+    state: started
+    enabled: true

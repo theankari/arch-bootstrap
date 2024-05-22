@@ -1,0 +1,9 @@
+- name: Create ssh-agent service
+  become: yes
+  become_user: root
+  copy:
+    src: ssh-agent.service
+    dest: /etc/systemd/user/ssh-agent.service
+    owner: root
+    group: root
+    mode: '0644'
