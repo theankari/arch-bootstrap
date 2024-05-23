@@ -23,3 +23,9 @@
     name: bluetooth.service
     state: started
     enabled: true
+
+- name: Enable docker
+  systemd_service:
+    name: docker.service
+    state: started
+    enabled: true
