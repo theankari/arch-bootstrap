@@ -5,9 +5,23 @@
     state: started
     enabled: true
 
-- name: Enable pulseaudio
+- name: Enable ssh-agent
   systemd_service:
     name: ssh-agent.service
     scope: user
     state: started
     enabled: true
+
+- name: Enable autorandr
+  systemd_service:
+    name: autorandr.service
+    state: started
+    enabled: true
+
+- name: Enable autorandr lid service
+  systemd_service:
+    name: autorandr-lid-listener.service
+    state: started
+    enabled: true
+
+

@@ -18,6 +18,11 @@
   tags:
     - editor
 
+- name: Setup custom config files
+  import_tasks: files.yaml
+  tags:
+    - files
+
 - name: Setup user specific statup apps
   import_tasks: startup.yaml
   tags:
