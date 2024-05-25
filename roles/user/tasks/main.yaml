@@ -22,4 +22,3 @@
   import_tasks: startup.yaml
   tags:
     - startup
-

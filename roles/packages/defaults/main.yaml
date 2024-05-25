@@ -3,6 +3,9 @@ packages:
   - base-devel
   - zsh
   - age
+  - pass
+  - qrencode
+  - autorandr
   - git
   - i3
   - alacritty
@@ -52,4 +55,3 @@ aur_packages:
   - noto-fonts-emoji
   - corrupter-git
   - neovim-symlinks
-  - passage-git

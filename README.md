@@ -1,3 +1,2 @@
 # TODOS
-
-* nvim config needs rework
+* enable autorandr and autorandr-lid services
