@@ -13,6 +13,8 @@ packages:
   - docker
   - tmux
   - thunar
+  - gvfs
+  - thunar-volman
   - vagrant
   - pulseaudio
   - scrot
