@@ -5,9 +5,9 @@
     state: started
     enabled: true
 
-- name: Enable ssh-agent
+- name: Enable gpg-agent
   systemd_service:
-    name: ssh-agent.service
+    name: gpg-agent.service
     scope: user
     state: started
     enabled: true
