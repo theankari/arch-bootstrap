@@ -3,7 +3,7 @@
   tags:
     - package_management
 
-- name: Install locales
-  import_tasks: locale.yaml
-  tags:
-    - locale
+# - name: Install locales
+#   import_tasks: locale.yaml
+#   tags:
+#     - locale

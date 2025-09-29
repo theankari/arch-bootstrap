@@ -1,14 +1,14 @@
 - name: Update cache and packages
   become: true
   become_user: root
-  pacman:
+  community.general.pacman:
     update_cache: yes
     upgrade: yes
 
 - name: Install pacman packages
   become: true
   become_user: root
-  pacman:
+  community.general.pacman:
     name: "{{ packages }}"
     state: present
 
