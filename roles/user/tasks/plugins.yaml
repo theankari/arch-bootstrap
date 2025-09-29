@@ -50,6 +50,8 @@
     path: "~/rofi-themes/"
 
 - name: Create a symbolic link for app launcher
+  become: yes
+  become_user: "{{ user }}"
   ansible.builtin.file:
     src: "/home/{{ user }}/.config/rofi/launchers/type-3/launcher.sh"
     dest: "/home/{{ user }}/.local/bin/i3/appsmenu.sh"
