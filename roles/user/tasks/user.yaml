@@ -7,7 +7,7 @@
     ssh_key_bits: 2048
     ssh_key_file: .ssh/id_rsa
     shell: /bin/zsh
-    password: "{{ 'changeme' | password_hash('sha512') }}"
+    password: "$6$0S/FJbCRbMPC14vt$Ph4f4YKhJoMJ0WqWii20W4DMsIjv4aaFbtFiMs/OaPFIOxoFVJI.T3L5/r7V3a83QRJLY/cDHiwMQXVsO.QV21" #password is: changeme
     append: true
     groups:
       - wheel
