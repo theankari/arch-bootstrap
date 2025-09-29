@@ -15,7 +15,6 @@ packages:
   - thunar
   - gvfs
   - thunar-volman
-  - vagrant
   - pulseaudio
   - scrot
   - xfce4-screenshooter
