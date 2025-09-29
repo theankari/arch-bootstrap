@@ -11,6 +11,6 @@
   command: "{{ item }}"
   loop:
     - "pacman -S --needed --noconfirm reflector"
-    - "reflector --verbose -l 5 --sort rate --save /etc/pacman.d/mirrorlist"
+    - "reflector --verbose --protocol https -l 5 --sort rate --save /etc/pacman.d/mirrorlist"
 
 
