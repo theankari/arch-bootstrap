@@ -1,5 +1,8 @@
 - hosts: localsetup
   roles:
-    - common
-    - packages
-    - user
+    - role: common
+      tags: [common]
+    - role: packages
+      tags: [packages]
+    - role: user
+      tags: [user]
